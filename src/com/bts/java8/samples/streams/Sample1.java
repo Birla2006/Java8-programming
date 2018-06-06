@@ -2,6 +2,7 @@ package com.bts.java8.samples.streams;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.stream.IntStream;
 
 /**
  * @author birla
@@ -19,6 +20,10 @@ public class Sample1 {
 		sample.findItemsAndSortingWithDesc(items, "p");
 		sample.findItemsAndApplyMapping(items, "p");
 		sample.matchingExamples(items, "pen");
+		
+		int[] marks = {3,5,10,20,44,66,56,71,88};
+		
+		sample.getSummaryStatistics(marks); ////reduction - summary statistics
 
 	}
 
@@ -83,6 +88,12 @@ public class Sample1 {
 		boolean isNoneMatches = Arrays.stream(items).noneMatch(item -> item.contains(conditionString));
 		System.out.println("Is Conditions matches on all item :"+isNoneMatches);
 		System.out.println();
+		
+	}
+	
+	private void getSummaryStatistics(int[] marks) {
+		 
+		 System.out.println("Summary Statistics of int array : "+Arrays.stream(marks).summaryStatistics());
 		
 	}
 
